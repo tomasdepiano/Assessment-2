@@ -1,0 +1,34 @@
+.box {
+  color: white;
+  display: inline;
+  font-family: sans-serif;
+}
+
+.cnbox {
+  padding-top: 10px;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+}
+
+.sith {
+  padding: 10px;
+}
+
+.box-lightsaber {
+  padding-top: 10px;
+  margin-bottom: 5px;
+  padding-bottom: 50px;
+}
+
+.table {
+  margin-top: 50px;
+  border-color: white;
+}
+
+.container1 {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.container {
+  display: flex;
+}
