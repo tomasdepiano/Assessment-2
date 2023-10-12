@@ -8,8 +8,20 @@
 // update and say "Log out". If a user clicks on the button again, its text
 // should switch from "Log Out" to "Log In".
 
-/// TODO: replace this with your code
+// 1. when someone clicks the button it should update and say "Log Out" - done
 
+// 2. If it's clicked again, the text should switch from Log Out to Log In
+
+const myButton = document.querySelector("#auth");
+// console.log(myButton);
+// console.dir(myButton);
+myButton.addEventListener("click", () => {
+  if (myButton.innerText === "Log in") {
+    myButton.innerText = "Log out";
+  } else {
+    myButton.innerText = "Log in";
+  }
+});
 // Send an alert
 //
 // This form will send an alert to a user via the built-in alert function.
@@ -17,7 +29,14 @@
 // A user should be able to enter what they want the alert to say in the
 // text box. Then, they can submit the form to trigger the alert.
 
-/// TODO: replace this with your code
+document
+  .querySelector("#send-alert")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const alerText = document.querySelector("#alert-message").value;
+    alert(alerText);
+  });
 
 // Add an item
 //
@@ -34,7 +53,12 @@
 //     <li>Item</li>  <!-- This was added after double-clicking -->
 //   </ol>
 
-/// TODO: replace this with your code
+document.querySelector("#item-adder").addEventListener("dblclick", () => {
+  const list = document.querySelector("#list");
+  const newItem = document.createElement("li");
+  newItem.textContent = "Item";
+  list.appendChild(newItem);
+});
 
 // Change colors
 //
@@ -45,7 +69,21 @@
 // Clicking on "Turn Stuff Red" should make text red and clicking on "Turn
 // Stuff Blue" should make text blue.
 
-/// TODO: replace this with your code
+// use an event listener to change the color of the class to blue and red
+
+document.getElementById("red").addEventListener("click", () => {
+  const elements = document.getElementsByClassName("changes-colors");
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].style.color = "red";
+  }
+});
+
+document.getElementById("blue").addEventListener("click", () => {
+  const elements = document.getElementsByClassName("changes-colors");
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].style.color = "blue";
+  }
+});
 
 // Calculate factorial
 //
@@ -61,8 +99,24 @@
 //   - gets whatever number is inside the input field
 //   - calls your function that calculates a factorial
 //   - puts the result of the function inside the "result" span
+// console.log(document);
+document
+  .getElementById("factorial-calculator")
+  .addEventListener("submit", (event) => {
+    event.preventDefault();
+    const number = document.getElementById("factorial-input").value;
+    const factorial = getFactorial(number);
+    document.getElementById("result").textContent = factorial;
+  });
 
-/// TODO: replace this with your code
+function getFactorial(num) {
+  let factorial = 1;
+  for (let i = num; i > 1; i--) {
+    factorial *= i;
+    console.log(factorial);
+  }
+  return factorial;
+}
 
 // Validate a form
 //
