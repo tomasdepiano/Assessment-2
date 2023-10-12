@@ -133,4 +133,25 @@ function getFactorial(num) {
 // the feedback text to say "The word must be at least 4 characters long." and
 // change the color of the text to red..
 
-/// TODO: replace this with your code
+document.addEventListener("DOMContentLoaded", function () {
+  const wordForm = document.getElementById("recommend-word");
+  const wordInput = document.getElementById("word");
+  const feedback = document.getElementById("submit");
+
+  wordForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent the form from submitting normally
+
+    const enteredText = wordInput.value.trim(); // Remove leading/trailing white spaces
+
+    if (enteredText.length >= 4) {
+      feedback.textContent = "Thanks for your submission!";
+      feedback.style.color = "green";
+    } else if (enteredText.length >= 3) {
+      feedback.textContent = "The word must be at least 4 characters long.";
+      feedback.style.color = "red";
+    } else {
+      feedback.textContent = "The word is too short.";
+      feedback.style.color = "red";
+    }
+  });
+});
